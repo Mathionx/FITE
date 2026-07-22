@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Money Tracker</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/moneytracker.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub">Track spending & income</div>
+    <h1>Money</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card balance-card">
+    <div class="bal-row">
+      <div><div class="card-sub">Income</div><div class="bal-v income" id="totalIncome">0</div></div>
+      <div><div class="card-sub">Spent</div><div class="bal-v expense" id="totalExpense">0</div></div>
+      <div><div class="card-sub">Net</div><div class="bal-v" id="totalNet">0</div></div>
+    </div>
+  </div>
+
+  <div class="tabs" id="rangeTabs">
+    <div class="tab active" data-range="week">This week</div>
+    <div class="tab" data-range="month">This month</div>
+    <div class="tab" data-range="all">All time</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">By category</div>
+    <div id="chartHolder" class="chart-holder"></div>
+  </div>
+
+  <div class="section-title">Entries</div>
+  <div id="entriesList"></div>
+
+</div>
+
+<button class="fab" id="addFab"></button>
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Add entry sheet -->
+<div class="overlay" id="addSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Add entry</div>
+    <div class="tabs">
+      <div class="tab active" data-type="expense">Expense</div>
+      <div class="tab" data-type="income">Income</div>
+    </div>
+    <label>Amount</label>
+    <input type="number" id="entryAmount" placeholder="0.00" inputmode="decimal">
+    <label>Category</label>
+    <input type="text" id="entryCategory" placeholder="e.g. Food, Gym, Transport">
+    <label>Note (optional)</label>
+    <input type="text" id="entryNote" placeholder="e.g. Chicken & rice">
+    <label>Date</label>
+    <input type="date" id="entryDate">
+    <button class="btn btn-block mt16" id="entrySaveBtn">Save entry</button>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Money tracker settings</div>
+    <label>Currency symbol</label>
+    <input type="text" id="currencyInput" maxlength="4">
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+    <button class="btn btn-block mt16" id="settingsSaveBtn">Save</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/moneytracker.js"></script>
+</body>
+</html>

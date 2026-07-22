@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Home</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- Splash: shown only on the very first ever app load (see js/index.js) -->
+  <div id="splash" class="hidden">
+    <img class="splash-logo" src="assets/icons/icon-512.png" alt="FITE logo">
+    <div id="splashTitle">FITE</div>
+    <div id="splashTag">Stand taller. Move stronger.</div>
+  </div>
+
+  <div id="homeBg" class="home-bg"></div>
+
+  <button class="quick-lock-btn hidden" id="quickLockBtn" aria-label="Lock app"></button>
+
+  <div class="topbar" >
+    <div class="topbar-title">
+      <div class="sub" id="dateLabel">Today</div>
+      <!--<h1>Hey</h1>-->
+    </div>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="settings.html" id="settingsLink" aria-label="Settings"></a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Daily motivation card (one per day, refreshed once online) -->
+    <div class="daily-card-wrap">
+      <div class="daily-card shimmer" id="dailyCard">
+        <div class="dc-quote" id="dcQuote"></div>
+        <div class="dc-author" id="dcAuthor"></div>
+      </div>
+    </div>
+
+    <div class="home-panel" style="background-color : transparent;">
+      <div class="section-title" style="margin-top:0;">Your apps</div>
+      <div class="app-grid" id="appGrid"></div>
+
+      <div class="section-title">Today at a glance</div>
+      <div class="card row-between" id="glanceCard">
+        <div>
+          <div class="card-title" id="glanceTitle">Loading…</div>
+          <div class="card-sub" id="glanceSub"></div>
+        </div>
+        <div class="ring-wrap" style="width:64px;height:64px;">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle class="ring-bg" cx="32" cy="32" r="26"></circle>
+            <circle class="ring-fg" id="glanceRing" cx="32" cy="32" r="26" stroke-dasharray="163" stroke-dashoffset="163"></circle>
+          </svg>
+          <div class="ring-label" id="glancePct" style="font-size:13px;">0%</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav hidden" id="bottomNav"></div>
+
+  <!-- Icon upload sheet -->
+  <div class="overlay" id="iconSheet">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-title" id="iconSheetTitle">Change icon</div>
+      <input type="file" id="iconFileInput" accept="image/*" class="hidden">
+      <button class="btn btn-block" id="iconUploadBtn">Upload custom icon</button>
+      <button class="btn btn-secondary btn-block mt12" id="iconResetBtn">Reset to default</button>
+      <button class="btn btn-ghost btn-block mt12" id="iconCancelBtn">Cancel</button>
+    </div>
+  </div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/plan-data.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

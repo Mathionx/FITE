@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Checklist</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/checklist.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub" id="dateLabel">Today</div>
+    <h1>Checklist</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="historyBtn"></div>
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card progress-card row-between">
+    <div>
+      <div class="card-title" id="progressTitle">Loading…</div>
+      <div class="card-sub" id="progressSub"></div>
+    </div>
+    <div class="ring-wrap">
+      <svg width="96" height="96" viewBox="0 0 96 96">
+        <circle class="ring-bg" cx="48" cy="48" r="40"></circle>
+        <circle class="ring-fg" id="progressRing" cx="48" cy="48" r="40" stroke-dasharray="251" stroke-dashoffset="251"></circle>
+      </svg>
+      <div class="ring-label" id="progressPct">0%</div>
+    </div>
+  </div>
+
+  <div id="checklistItems"></div>
+
+  <div class="add-item-btn" id="addItemBtn"></div>
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Add item sheet -->
+<div class="overlay" id="addSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Add task</div>
+    <label>Task</label>
+    <input type="text" id="addLabel" placeholder="e.g. Read 10 pages">
+    <label>Time (optional)</label>
+    <input type="time" id="addTime">
+    <button class="btn btn-block mt16" id="addSaveBtn">Add to today</button>
+  </div>
+</div>
+
+<!-- History sheet -->
+<div class="overlay" id="historySheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">History</div>
+    <div id="historyList"></div>
+  </div>
+</div>
+
+<!-- History day detail -->
+<div class="overlay" id="historyDaySheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title" id="historyDayTitle">Day</div>
+    <div id="historyDayItems"></div>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Checklist settings</div>
+    <div class="card-sub mt8">Adjust the default times used to build today's checklist.</div>
+    <div id="timeInputs"></div>
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+    <button class="btn btn-block mt16" id="settingsSaveBtn">Save & rebuild today</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/plan-data.js"></script>
+<script src="js/checklist.js"></script>
+</body>
+</html>

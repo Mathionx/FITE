@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Notes</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/notes.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub">Daily journal</div>
+    <h1 id="noteDateHeading">Today</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="calendarBtn"></div>
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="toolbar">
+    <button class="tb-btn" id="boldBtn"><b>B</b></button>
+    <button class="tb-btn" id="italicBtn"><i>I</i></button>
+    <button class="tb-btn" id="listBtn">•</button>
+    <div class="stretch"></div>
+    <div class="save-indicator" id="saveIndicator">Saved</div>
+  </div>
+  <div class="note-editor" id="noteEditor" contenteditable="true" data-placeholder="Write about today…"></div>
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Calendar sheet -->
+<div class="overlay" id="calendarSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Jump to a date</div>
+    <input type="date" id="dateInput">
+    <div id="notesWithContent" class="mt16"></div>
+    <button class="btn btn-block mt16" id="goDateBtn">Open</button>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Notes settings</div>
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/notes.js"></script>
+</body>
+</html>

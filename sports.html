@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Sports</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/sports.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub">Priorities: posture · hips · muscle · flexibility</div>
+    <h1>Sports</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="historyBtn"></div>
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="tabs" id="mainTabs">
+    <div class="tab active" data-tab="gym">Gym</div>
+    <div class="tab" data-tab="flex">Flexibility</div>
+    <div class="tab" data-tab="posture">Posture</div>
+  </div>
+
+  <!-- GYM TAB -->
+  <div id="tab-gym" class="tab-panel">
+    <div class="day-chips" id="dayChips"></div>
+    <div class="card" id="dayNote" style="display:none;"></div>
+    <div id="exerciseList"></div>
+    <button class="btn btn-block mt16" id="finishBtn">Finish Workout</button>
+  </div>
+
+  <!-- FLEX TAB -->
+  <div id="tab-flex" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">Flexibility (Every Night)</div>
+      <div class="card-sub" id="flexDuration"></div>
+    </div>
+    <div id="flexList"></div>
+    <div class="card-flat mt16" id="flexNote"></div>
+  </div>
+
+  <!-- POSTURE TAB -->
+  <div id="tab-posture" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">Posture Exercises</div>
+      <div class="card-sub" id="postureNote"></div>
+    </div>
+    <div id="postureList"></div>
+  </div>
+
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Rest timer bar -->
+<div class="rest-bar hidden" id="restBar">
+  <div class="rest-time" id="restTime">01:30</div>
+  <div class="rest-label">Rest</div>
+  <div class="rest-actions">
+    <button class="icon-btn sm" id="restMinus"></button>
+    <button class="icon-btn sm" id="restPlay"></button>
+    <button class="icon-btn sm" id="restPlus"></button>
+    <button class="icon-btn sm" id="restClose"></button>
+  </div>
+</div>
+
+<!-- Video sheet -->
+<div class="overlay" id="videoSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title" id="videoTitle">Exercise</div>
+    <div id="videoBody"></div>
+    <div class="mt12">
+      <label>YouTube URL</label>
+      <input type="text" id="videoUrlInput" placeholder="https://www.youtube.com/watch?v=...">
+      <button class="btn btn-secondary btn-block mt12" id="videoSaveBtn">Save link</button>
+    </div>
+    <button class="btn btn-ghost btn-block mt12" id="videoCloseBtn">Close</button>
+  </div>
+</div>
+
+<!-- History sheet -->
+<div class="overlay" id="historySheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Workout history</div>
+    <div id="historyList"></div>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Sports settings</div>
+    <label>Default rest timer (seconds)</label>
+    <input type="number" id="restDefaultInput" min="10" step="5">
+    <label class="row-between" style="cursor:pointer;">
+      <span>Remind me at gym time (17:00)</span>
+      <input type="checkbox" id="gymReminderToggle" style="width:auto;">
+    </label>
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+    <button class="btn btn-block mt16" id="settingsSaveBtn">Save</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/plan-data.js"></script>
+<script src="js/sports.js"></script>
+</body>
+</html>

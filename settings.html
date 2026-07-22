@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Settings</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub">Global preferences</div>
+    <h1>Settings</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Appearance</div>
+  <div class="card">
+    <div class="card-title">Theme</div>
+    <div class="card-sub">Pick a colour theme for the whole app.</div>
+    <div class="theme-grid" id="themeGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Font style</div>
+    <div class="font-grid" id="fontGrid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Home wallpaper rotation</div>
+    <div class="card-sub">A different static wallpaper is chosen each time you launch FITE. Add your own photos to include them in the rotation alongside the built-in set.</div>
+    <input type="file" id="homeWallpaperInput" accept="image/*" multiple class="mt12">
+    <div id="customWallpaperList" class="mt12"></div>
+  </div>
+
+  <div class="section-title">Top bar</div>
+  <div class="card">
+    <div class="slider-row">
+      <div class="row-between"><span>Background opacity</span><span id="topOpacityVal">92%</span></div>
+      <input type="range" id="topOpacitySlider" min="0" max="100" step="5">
+    </div>
+    <label class="row-between" style="cursor:pointer;">
+      <span>Blur effect</span>
+      <input type="checkbox" id="topBlurToggle" style="width:auto;">
+    </label>
+    <label class="row-between mt12" style="cursor:pointer;">
+      <span>Show page title</span>
+      <input type="checkbox" id="topShowTitleToggle" style="width:auto;">
+    </label>
+    <label class="mt12">Icon colour</label>
+    <select id="topIconColorSelect">
+      <option value="auto">Auto (follows theme)</option>
+      <option value="#1a1a1a">Dark grey</option>
+      <option value="#ffffff">White</option>
+      <option value="#1463F3">Accent blue</option>
+    </select>
+  </div>
+
+  <div class="section-title">Bottom dock</div>
+  <div class="card">
+    <label class="row-between" style="cursor:pointer;">
+      <span>Show bottom dock</span>
+      <input type="checkbox" id="navToggle" style="width:auto;">
+    </label>
+    <div id="navOptions" class="hidden mt12">
+      <div class="slider-row">
+        <div class="row-between"><span>Transparency</span><span id="navOpacityVal">92%</span></div>
+        <input type="range" id="navOpacitySlider" min="0" max="100" step="5">
+      </div>
+      <label class="row-between" style="cursor:pointer;">
+        <span>Blur effect</span>
+        <input type="checkbox" id="navBlurToggle" style="width:auto;">
+      </label>
+      <div class="card-sub mt12">Drag to reorder, tap "Add" on the dock to add a shortcut, or manage everything here:</div>
+      <div id="dockManageList" class="mt12"></div>
+      <button class="btn btn-secondary btn-block mt12" id="dockAddMoreBtn">Add a shortcut</button>
+    </div>
+  </div>
+
+  <div class="section-title">Security</div>
+  <div class="card">
+    <label class="row-between" style="cursor:pointer;">
+      <span>App lock (PIN)</span>
+      <input type="checkbox" id="lockToggle" style="width:auto;">
+    </label>
+    <div id="lockOptions" class="hidden mt12">
+      <label>Set 4-digit PIN</label>
+      <input type="text" id="pinInput" maxlength="4" inputmode="numeric" placeholder="••••">
+      <label>Lock after inactivity of</label>
+      <select id="timeoutSelect">
+        <option value="1s">1 second</option>
+        <option value="1min">1 minute</option>
+        <option value="30min">30 minutes</option>
+        <option value="1hr">1 hour</option>
+      </select>
+      <label class="row-between mt12" style="cursor:pointer;">
+        <span>Use fingerprint / Face unlock when available</span>
+        <input type="checkbox" id="fingerprintToggle" style="width:auto;">
+      </label>
+      <div class="card-sub mt8" id="fingerprintSupport"></div>
+    </div>
+  </div>
+
+  <div class="section-title">Notifications</div>
+  <div class="card">
+    <label class="row-between" style="cursor:pointer;">
+      <span>Enable reminders</span>
+      <input type="checkbox" id="notifToggle" style="width:auto;">
+    </label>
+    <div id="notifOptions" class="hidden mt12">
+      <label class="row-between" style="cursor:pointer;"><span>Meal windows</span><input type="checkbox" id="notifMeals" style="width:auto;"></label>
+      <label class="row-between" style="cursor:pointer;"><span>Workout time</span><input type="checkbox" id="notifWorkouts" style="width:auto;"></label>
+      <label class="row-between" style="cursor:pointer;"><span>Nightly flexibility</span><input type="checkbox" id="notifFlex" style="width:auto;"></label>
+      <div class="card-sub mt12" id="notifPermState"></div>
+    </div>
+  </div>
+
+  <div class="section-title">App icons</div>
+  <div class="card">
+    <div class="card-sub">Long-press any app icon on the Home screen to upload a custom icon, or reset it to default.</div>
+  </div>
+
+  <div class="section-title">Data</div>
+  <div class="card">
+    <button class="btn btn-secondary btn-block" id="exportBtn">Export all data (.json)</button>
+    <input type="file" id="importInput" accept="application/json" class="hidden">
+    <button class="btn btn-secondary btn-block mt12" id="importBtn">Import data</button>
+    <button class="btn btn-danger btn-block mt12" id="clearBtn">Clear all data</button>
+  </div>
+
+  <div class="section-title">About</div>
+  <div class="card">
+    <div class="card-title">FITE</div>
+    <div class="card-sub">Your personal offline fitness & life companion.</div>
+    <div class="card-sub mt8" id="storageInfo"></div>
+  </div>
+
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

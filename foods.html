@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Foods</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/foods.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub">16:8 fasting · protein + carbs + veg every meal</div>
+    <h1>Foods</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Fasting timer -->
+  <div class="card fasting-card">
+    <div class="row-between">
+      <div>
+        <div class="card-sub" id="fastingState">Eating window</div>
+        <div class="fasting-time" id="fastingCountdown">--:--:--</div>
+      </div>
+      <div class="ring-wrap" style="width:70px;height:70px;">
+        <svg width="70" height="70" viewBox="0 0 70 70">
+          <circle class="ring-bg" cx="35" cy="35" r="29"></circle>
+          <circle class="ring-fg" id="fastRing" cx="35" cy="35" r="29" stroke-dasharray="182" stroke-dashoffset="182"></circle>
+        </svg>
+      </div>
+    </div>
+    <div class="card-sub mt8" id="fastingWindowLabel"></div>
+  </div>
+
+  <!-- Daily totals -->
+  <div class="card">
+    <div class="card-title">Today's totals</div>
+    <div class="macro-row" id="macroTotals"></div>
+  </div>
+
+  <div class="day-chips" id="foodDayChips"></div>
+  <div id="mealSections"></div>
+
+  <div class="card-flat mt16" id="mealRuleCard"></div>
+
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Edit food sheet -->
+<div class="overlay" id="editSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title" id="editTitle">Edit food</div>
+    <label>Name</label>
+    <input type="text" id="editName">
+    <div class="grid-2 mt12">
+      <div><label>Calories</label><input type="number" id="editCal"></div>
+      <div><label>Protein (g)</label><input type="number" id="editProtein"></div>
+      <div><label>Carbs (g)</label><input type="number" id="editCarbs"></div>
+      <div><label>Fat (g)</label><input type="number" id="editFat"></div>
+    </div>
+    <div class="row mt16" style="justify-content:space-between;">
+      <button class="btn btn-danger btn-sm" id="editDeleteBtn">Delete</button>
+      <button class="btn btn-sm" id="editSaveBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add food sheet -->
+<div class="overlay" id="addSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Add food item</div>
+    <label>Meal</label>
+    <select id="addMeal"><option value="breakfast">Breakfast</option><option value="snack">Snack</option><option value="dinner">Dinner</option></select>
+    <label>Name</label>
+    <input type="text" id="addName" placeholder="e.g. Avocado">
+    <div class="grid-2 mt12">
+      <div><label>Calories</label><input type="number" id="addCal" value="0"></div>
+      <div><label>Protein (g)</label><input type="number" id="addProtein" value="0"></div>
+      <div><label>Carbs (g)</label><input type="number" id="addCarbs" value="0"></div>
+      <div><label>Fat (g)</label><input type="number" id="addFat" value="0"></div>
+    </div>
+    <button class="btn btn-block mt16" id="addSaveBtn">Add to day</button>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Foods settings</div>
+    <div class="grid-2">
+      <div><label>Fasting starts</label><input type="time" id="fastStartInput"></div>
+      <div><label>Fasting ends</label><input type="time" id="fastEndInput"></div>
+    </div>
+    <label>Notify at fasting start/end</label>
+    <label class="row-between" style="cursor:pointer;">
+      <span>Enable fasting alerts</span>
+      <input type="checkbox" id="fastAlertToggle" style="width:auto;">
+    </label>
+    <div class="section-title" style="margin:16px 0 8px;">Macro goals</div>
+    <div class="grid-2">
+      <div><label>Calories</label><input type="number" id="goalCal"></div>
+      <div><label>Protein (g)</label><input type="number" id="goalProtein"></div>
+      <div><label>Carbs (g)</label><input type="number" id="goalCarbs"></div>
+      <div><label>Fat (g)</label><input type="number" id="goalFat"></div>
+    </div>
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+    <button class="btn btn-block mt16" id="settingsSaveBtn">Save</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/plan-data.js"></script>
+<script src="js/foods.js"></script>
+</body>
+</html>

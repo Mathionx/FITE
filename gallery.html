@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FITE — Gallery</title>
+<meta name="theme-color" content="#1463F3">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/shared.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+<div id="pageBg" class="page-bg"></div>
+
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="sub" id="storageSub">Progress photos & videos</div>
+    <h1>Gallery</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="icon-btn" id="trashBtn"></div>
+    <div class="icon-btn" id="settingsBtn"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="galleryContent"></div>
+</div>
+
+<input type="file" id="fileInput" accept="image/*,video/*" multiple class="hidden">
+<button class="fab" id="uploadFab"></button>
+
+<div class="select-bar hidden" id="selectBar">
+  <div id="selectCount">0 selected</div>
+  <div class="row">
+    <button class="btn btn-secondary btn-sm" id="compareBtn">Compare</button>
+    <button class="btn btn-danger btn-sm" id="deleteSelBtn">Delete</button>
+    <button class="btn btn-ghost btn-sm" id="cancelSelBtn">Cancel</button>
+  </div>
+</div>
+
+<div class="bottom-nav hidden" id="bottomNav"></div>
+
+<!-- Upload note sheet -->
+<div class="overlay" id="uploadSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Add a note (optional)</div>
+    <div id="uploadPreview" class="upload-preview"></div>
+    <textarea id="uploadNote" rows="3" placeholder="e.g. Week 4 — feeling stronger"></textarea>
+    <button class="btn btn-block mt16" id="uploadSaveBtn">Save to gallery</button>
+  </div>
+</div>
+
+<!-- Viewer -->
+<div class="overlay center" id="viewerSheet">
+  <div class="sheet viewer-sheet">
+    <div id="viewerMedia" class="viewer-media"></div>
+    <div class="viewer-note" id="viewerNote"></div>
+    <div class="row mt16" style="justify-content:center; gap:14px;">
+      <button class="btn btn-secondary btn-sm" id="viewerInfoBtn">Info</button>
+      <button class="btn btn-danger btn-sm" id="viewerDeleteBtn">Delete</button>
+      <button class="btn btn-ghost btn-sm" id="viewerCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Info sheet -->
+<div class="overlay" id="infoSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Item info</div>
+    <label>File name</label>
+    <input type="text" id="infoName">
+    <label>Note</label>
+    <textarea id="infoNote" rows="3"></textarea>
+    <div class="card-flat mt12" id="infoMeta"></div>
+    <button class="btn btn-block mt16" id="infoSaveBtn">Save changes</button>
+  </div>
+</div>
+
+<!-- Trash sheet -->
+<div class="overlay" id="trashSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Trash</div>
+    <div class="card-sub mt8" id="trashNote"></div>
+    <div id="trashList" class="mt12"></div>
+    <button class="btn btn-danger btn-block mt16" id="emptyTrashBtn">Empty trash</button>
+  </div>
+</div>
+
+<!-- Compare view -->
+<div class="overlay center" id="compareSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Compare</div>
+    <div class="compare-grid" id="compareGrid"></div>
+    <button class="btn btn-ghost btn-block mt16" id="compareCloseBtn">Close</button>
+  </div>
+</div>
+
+<!-- Settings sheet -->
+<div class="overlay" id="settingsSheet">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Gallery settings</div>
+    <label class="row-between" style="cursor:pointer;">
+      <span>Group by day</span>
+      <input type="checkbox" id="groupToggle" style="width:auto;">
+    </label>
+    <label>Auto-empty trash after (days)</label>
+    <input type="number" id="trashDaysInput" min="1">
+    <label>Page background</label>
+    <input type="file" id="bgUploadInput" accept="image/*">
+    <button class="btn btn-secondary btn-block mt12" id="bgResetBtn">Reset background</button>
+    <button class="btn btn-block mt16" id="settingsSaveBtn">Save</button>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app-shared.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>
