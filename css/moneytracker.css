@@ -1,0 +1,26 @@
+.page-bg{ position:fixed; inset:0; z-index:-1; background:var(--bg); }
+
+.balance-card{ background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; }
+.balance-card .card-sub{ color:rgba(255,255,255,.8); }
+.bal-row{ display:flex; justify-content:space-between; gap:10px; }
+.bal-v{ font-size:19px; font-weight:900; margin-top:2px; }
+.bal-v.income{ color:#B6FFCF; }
+.bal-v.expense{ color:#FFC9C0; }
+
+.chart-holder{ display:flex; align-items:center; gap:16px; margin-top:8px; }
+.chart-holder svg{ flex:0 0 auto; }
+.legend{ flex:1; display:flex; flex-direction:column; gap:6px; }
+.legend-row{ display:flex; align-items:center; gap:8px; font-size:12.5px; }
+.legend-dot{ width:10px; height:10px; border-radius:3px; flex:0 0 auto; }
+.legend-label{ flex:1; color:var(--text-soft); font-weight:600; }
+.legend-val{ font-weight:800; }
+
+.entry-item{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:12px; margin-bottom:8px; box-shadow:var(--shadow); }
+.entry-cat-dot{ width:38px; height:38px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:14px; flex:0 0 auto; }
+.entry-info{ flex:1; }
+.entry-cat{ font-weight:700; font-size:14px; }
+.entry-note{ font-size:12px; color:var(--text-faint); }
+.entry-amt{ font-weight:800; font-size:14.5px; }
+.entry-amt.income{ color:var(--success); }
+.entry-amt.expense{ color:var(--danger); }
+.entry-del{ color:var(--text-faint); padding:4px; cursor:pointer; }

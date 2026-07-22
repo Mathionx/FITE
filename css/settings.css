@@ -1,0 +1,16 @@
+.page-bg{ position:fixed; inset:0; z-index:-1; background:var(--bg); }
+
+.theme-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-top:12px; }
+.theme-swatch{ display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer; }
+.swatch-circle{ width:44px; height:44px; border-radius:50%; border:2px solid transparent; position:relative; box-shadow:var(--shadow); }
+.theme-swatch.active .swatch-circle{ border-color:var(--text); }
+.theme-swatch.active .swatch-circle::after{ content:'✓'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900; font-size:15px; }
+.swatch-label{ font-size:10px; font-weight:700; color:var(--text-soft); text-align:center; }
+
+.font-grid{ display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.font-option{ display:flex; align-items:center; justify-content:space-between; padding:12px 14px; border-radius:14px; border:1px solid var(--border); cursor:pointer; }
+.font-option.active{ border-color:var(--accent); background:var(--accent-soft); }
+.font-option .fo-name{ font-size:15px; font-weight:700; }
+.font-option .fo-check{ width:20px; height:20px; border-radius:50%; background:var(--accent); display:none; align-items:center; justify-content:center; }
+.font-option.active .fo-check{ display:flex; }
+.font-option .fo-check svg{ width:12px; height:12px; stroke:white; }

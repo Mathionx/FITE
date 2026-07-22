@@ -1,0 +1,102 @@
+/* ==========================================================================
+   FITE — Theme definitions
+   12 predefined themes (light/dark accent pairs), Samsung One UI inspired.
+   Applied via [data-theme] attribute on <html>.
+   ========================================================================== */
+
+:root{
+  /* Fallback (oneui-blue) */
+  --bg:#F2F3F5;
+  --bg-elevated:#FFFFFF;
+  --surface:#FFFFFF;
+  --surface-alt:#F7F8FA;
+  --text:#191A1F;
+  --text-soft:#6B7078;
+  --text-faint:#9AA0A8;
+  --accent:#1463F3;
+  --accent-2:#5B8DF6;
+  --accent-soft:#E7EEFF;
+  --border:#EAEBEF;
+  --danger:#F0473E;
+  --success:#2CB67D;
+  --warning:#F2A93B;
+  --shadow: 0 2px 10px rgba(20,20,30,0.06), 0 1px 2px rgba(20,20,30,0.04);
+  --shadow-lg: 0 12px 32px rgba(20,20,30,0.12);
+  --radius-sm:14px;
+  --radius-md:20px;
+  --radius-lg:28px;
+  --radius-pill:999px;
+  --scheme: light;
+}
+
+[data-theme="oneui-blue"]{ --accent:#1463F3; --accent-2:#5B8DF6; --accent-soft:#E7EEFF; }
+
+[data-theme="oneui-blue-dark"]{
+  --bg:#0E0F13; --bg-elevated:#17181D; --surface:#17181D; --surface-alt:#1F2026;
+  --text:#F2F3F5; --text-soft:#A8ADB6; --text-faint:#6B7078;
+  --accent:#4C87FF; --accent-2:#7CA6FF; --accent-soft:#1B2A4A;
+  --border:#2A2C33; --scheme: dark;
+  --shadow: 0 2px 10px rgba(0,0,0,0.35); --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
+}
+
+[data-theme="mint"]{ --accent:#12B886; --accent-2:#4FD6AC; --accent-soft:#E1F8F0; }
+[data-theme="mint-dark"]{
+  --bg:#0B1412; --bg-elevated:#131F1B; --surface:#131F1B; --surface-alt:#182722;
+  --text:#EFFDF7; --text-soft:#9FC9BB; --text-faint:#5F8477;
+  --accent:#26D6A0; --accent-2:#6BE8C2; --accent-soft:#123329;
+  --border:#1E332C; --scheme: dark;
+}
+
+[data-theme="coral"]{ --accent:#FF5D5D; --accent-2:#FF8B7A; --accent-soft:#FFE7E3; }
+[data-theme="coral-dark"]{
+  --bg:#160D0D; --bg-elevated:#201313; --surface:#201313; --surface-alt:#2A1717;
+  --text:#FFF1EE; --text-soft:#D9A8A0; --text-faint:#8A5F58;
+  --accent:#FF6B5C; --accent-2:#FF9587; --accent-soft:#3A1A17;
+  --border:#331A18; --scheme: dark;
+}
+
+[data-theme="violet"]{ --accent:#7C5CFC; --accent-2:#A48CFF; --accent-soft:#ECE6FF; }
+[data-theme="violet-dark"]{
+  --bg:#100E1A; --bg-elevated:#191526; --surface:#191526; --surface-alt:#211B33;
+  --text:#F2EEFF; --text-soft:#B3A8D9; --text-faint:#6E6389;
+  --accent:#9D82FF; --accent-2:#BBA6FF; --accent-soft:#251C42;
+  --border:#241E38; --scheme: dark;
+}
+
+[data-theme="sunshine"]{ --accent:#F5A623; --accent-2:#FFC65C; --accent-soft:#FFF3DC; }
+[data-theme="sunshine-dark"]{
+  --bg:#14100A; --bg-elevated:#1E1811; --surface:#1E1811; --surface-alt:#271F16;
+  --text:#FFF7E9; --text-soft:#D9C29E; --text-faint:#8A7659;
+  --accent:#FFB84D; --accent-2:#FFD08A; --accent-soft:#332510;
+  --border:#2C2317; --scheme: dark;
+}
+
+[data-theme="rose"]{ --accent:#F0508E; --accent-2:#FF8AB6; --accent-soft:#FFE6F0; }
+[data-theme="rose-dark"]{
+  --bg:#160B10; --bg-elevated:#201319; --surface:#201319; --surface-alt:#2A1621;
+  --text:#FFEDF5; --text-soft:#D9A3BF; --text-faint:#8A5B74;
+  --accent:#FF6BA5; --accent-2:#FF9AC4; --accent-soft:#3A1626;
+  --border:#331723; --scheme: dark;
+}
+
+[data-theme="slate"]{
+  --bg:#0C0D10; --bg-elevated:#16171B; --surface:#16171B; --surface-alt:#1E1F24;
+  --text:#EDEEF0; --text-soft:#9CA0A8; --text-faint:#5C606A;
+  --accent:#7FA8FF; --accent-2:#A6C2FF; --accent-soft:#1C2740;
+  --border:#25262C; --scheme: dark;
+}
+
+[data-theme="graphite-light"]{
+  --bg:#EDEDEF; --bg-elevated:#FFFFFF; --surface:#FFFFFF; --surface-alt:#F5F5F7;
+  --text:#1B1C1F; --text-soft:#68696E; --text-faint:#9C9DA1;
+  --accent:#3A3D46; --accent-2:#6A6D77; --accent-soft:#E4E4E7;
+  --border:#E3E3E6; --scheme: light;
+}
+
+/* Fonts */
+[data-font="rounded"]{ --font-main: ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, sans-serif; }
+[data-font="modern"]{ --font-main: -apple-system, "Segoe UI", Roboto, system-ui, sans-serif; }
+[data-font="classic"]{ --font-main: Georgia, "Times New Roman", serif; }
+[data-font="mono"]{ --font-main: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+[data-font="friendly"]{ --font-main: "Trebuchet MS", "Comic Sans MS", sans-serif; }
+[data-font="elegant"]{ --font-main: "Palatino Linotype", Palatino, "Book Antiqua", serif; }

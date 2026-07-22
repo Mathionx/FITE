@@ -1,0 +1,17 @@
+.page-bg{ position:fixed; inset:0; z-index:-1; background:var(--bg); }
+
+.toolbar{ display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.tb-btn{
+  width:38px; height:38px; border-radius:12px; border:1px solid var(--border); background:var(--surface);
+  color:var(--text); font-size:14px; cursor:pointer; box-shadow:var(--shadow);
+}
+.save-indicator{ font-size:11.5px; color:var(--text-faint); font-weight:700; }
+
+.note-editor{
+  min-height:50vh; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:18px; font-size:15.5px; line-height:1.6; box-shadow:var(--shadow); outline:none;
+}
+.note-editor:empty::before{ content: attr(data-placeholder); color:var(--text-faint); }
+
+.notes-with-item{ display:flex; align-items:center; justify-content:space-between; padding:8px 4px; border-bottom:1px solid var(--border); font-size:13.5px; cursor:pointer; }
+.notes-with-item:last-child{ border-bottom:none; }

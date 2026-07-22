@@ -1,0 +1,30 @@
+.page-bg{ position:fixed; inset:0; z-index:-1; background:var(--bg); }
+
+.fasting-card{ background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; }
+.fasting-card .card-sub{ color:rgba(255,255,255,.85); }
+.fasting-card .ring-bg{ stroke:rgba(255,255,255,.25); }
+.fasting-card .ring-fg{ stroke:#fff; }
+.fasting-time{ font-size:26px; font-weight:900; font-variant-numeric:tabular-nums; margin-top:2px; }
+
+.macro-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:10px; }
+.macro-box{ background:var(--surface-alt); border-radius:14px; padding:10px 8px; text-align:center; }
+.macro-box .v{ font-weight:800; font-size:15px; }
+.macro-box .l{ font-size:10.5px; color:var(--text-soft); font-weight:700; margin-top:1px; }
+.macro-box .bar{ height:4px; border-radius:2px; background:var(--border); margin-top:6px; overflow:hidden; }
+.macro-box .bar i{ display:block; height:100%; background:var(--accent); }
+
+.day-chips{ display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; margin:16px 0 12px; }
+.day-chips::-webkit-scrollbar{ display:none; }
+.day-chip{ flex:0 0 auto; padding:9px 15px; border-radius:var(--radius-pill); background:var(--surface); border:1px solid var(--border); font-weight:700; font-size:13px; color:var(--text-soft); cursor:pointer; white-space:nowrap; }
+.day-chip.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
+
+.meal-block{ margin-bottom:16px; }
+.meal-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; padding:0 2px; }
+.meal-head .mh-title{ font-weight:800; font-size:14.5px; }
+.meal-head .mh-time{ font-size:11.5px; color:var(--text-faint); font-weight:700; }
+.food-item{ display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:12px; margin-bottom:8px; box-shadow:var(--shadow); }
+.food-item .fi-info{ flex:1; }
+.food-item .fi-name{ font-weight:700; font-size:14.5px; }
+.food-item .fi-macro{ font-size:11.5px; color:var(--text-soft); margin-top:2px; }
+.food-item .fi-edit{ width:32px; height:32px; border-radius:50%; background:var(--surface-alt); display:flex; align-items:center; justify-content:center; color:var(--text-soft); cursor:pointer; border:1px solid var(--border); }
+.add-food-btn{ display:flex; align-items:center; justify-content:center; gap:6px; padding:11px; border-radius:16px; border:1.5px dashed var(--border); color:var(--text-soft); font-weight:700; font-size:13px; cursor:pointer; }

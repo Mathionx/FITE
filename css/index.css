@@ -1,0 +1,71 @@
+/* ===================== Splash (first-ever load only) ===================== */
+#splash{
+  position:fixed; inset:0; z-index:500;
+  background:linear-gradient(160deg, var(--accent), var(--accent-2));
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+}
+#splash.show{ animation: splashOut .6s ease 1.4s forwards; }
+#splash .splash-logo{
+  width:96px; height:96px; border-radius:26px; box-shadow:0 12px 32px rgba(0,0,0,.25);
+  animation: splashPop .7s cubic-bezier(.2,.9,.3,1.2);
+}
+#splashTitle{ color:#fff; font-size:34px; font-weight:900; letter-spacing:.02em; opacity:0; animation: fadeUp .6s ease .2s forwards; }
+#splashTag{ color:rgba(255,255,255,.85); font-size:14px; font-weight:600; opacity:0; animation: fadeUp .6s ease .4s forwards; }
+
+@keyframes splashPop{ from{ transform:scale(.6); opacity:0; } to{ transform:scale(1); opacity:1; } }
+@keyframes fadeUp{ from{ transform:translateY(10px); opacity:0; } to{ transform:translateY(0); opacity:1; } }
+@keyframes splashOut{ to{ opacity:0; visibility:hidden; pointer-events:none; } }
+
+/* ===================== Static home wallpaper (no motion/particles) ===================== */
+.home-bg{
+  position:fixed; inset:0; z-index:-2;
+  background-color: var(--bg);
+  background-size:cover; background-position:center;
+}
+.home-bg::after{
+  /* Fixed (non-animated) legibility gradient — not a moving/particle effect */
+  content:''; position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 60%, rgba(0,0,0,.15) 100%);
+}
+
+.topbar h1{ margin:0; }
+
+/* ===================== Daily motivation card ===================== */
+.daily-card-wrap{ margin-bottom:6px; }
+.daily-card{
+  min-height:170px; border-radius:var(--radius-lg); position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:20px; color:#fff;
+  box-shadow:var(--shadow-lg); background-size:cover; background-position:center;
+  background-color:var(--accent);
+}
+.daily-card::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.65) 100%);
+}
+.dc-quote{ position:relative; font-size:16.5px; font-weight:800; line-height:1.4; }
+.dc-author{ position:relative; margin-top:8px; font-size:12px; font-weight:700; opacity:.85; text-transform:uppercase; letter-spacing:.04em; }
+
+/* ===================== Content panel (sits above the wallpaper) ===================== */
+.home-panel{
+  background:var(--bg); border-radius:26px 26px 0 0;
+  padding:4px 2px 20px;
+  margin-top:4px;
+}
+
+/* ===================== App grid ===================== */
+.app-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px 10px; }
+.app-tile{ display:flex; flex-direction:column; align-items:center; gap:7px; cursor:pointer; user-select:none; }
+.app-tile .tile-icon{
+  width:58px; height:58px; border-radius:20px; overflow:hidden;
+  box-shadow:var(--shadow); display:flex; align-items:center; justify-content:center;
+  background:var(--surface); transition:transform .12s ease;
+}
+.app-tile:active .tile-icon{ transform:scale(.9); }
+.app-tile .tile-icon img{ width:100%; height:100%; object-fit:cover; }
+.app-tile .tile-label{ font-size:11.5px; font-weight:700; color:var(--text-soft); text-align:center; }
+
+@media (max-width:360px){
+  .app-grid{ grid-template-columns:repeat(4,1fr); gap:10px 6px; }
+  .app-tile .tile-icon{ width:52px; height:52px; }
+}
