@@ -8,8 +8,6 @@ of data stored locally on your device (IndexedDB). No backend, no account,
 no tracking.
 
 **🔗 Live app:** `https://mathionx.github.io/FITE/`
-*(replace with your actual GitHub Pages URL — see "Deploying" below if you haven't turned Pages on yet)*
-
 ---
 
 ## What it does
