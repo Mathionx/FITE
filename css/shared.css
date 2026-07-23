@@ -237,7 +237,7 @@ label{ font-size:13px; font-weight:700; color:var(--text-soft); display:block; m
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   gap:22px; padding:24px;
 }
-.lock-logo{ width:64px; height:64px; }
+.lock-logo{ width:64px; height:64px; border-radius:20px; }
 .lock-dots{ display:flex; gap:14px; }
 .lock-dot{ width:14px; height:14px; border-radius:50%; border:2px solid var(--border); transition:all .15s ease; }
 .lock-dot.filled{ background:var(--accent); border-color:var(--accent); }
